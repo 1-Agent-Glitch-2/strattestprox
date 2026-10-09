@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    <title>Dual Proxy — Scramjet + Ultraviolet</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="brand">
+        <span class="mark">P</span>
+        <div>
+          <strong>Dual Proxy</strong>
+          <small id="engine-label">Scramjet</small>
+        </div>
+      </div>
+      <form id="address-form" autocomplete="off">
+        <button id="back" type="button" aria-label="Back">←</button>
+        <button id="forward" type="button" aria-label="Forward">→</button>
+        <button id="reload" type="button" aria-label="Reload">↻</button>
+        <input id="address" placeholder="Enter a URL or search the web" spellcheck="false" />
+        <button class="go" type="submit">Go</button>
+      </form>
+      <span id="status" role="status">Starting…</span>
+      <button id="settings-open" type="button" title="Settings" aria-label="Settings">⚙</button>
+    </header>
+
+    <main>
+      <iframe id="browser" title="Proxied website" src="about:blank"></iframe>
+    </main>
+
+    <div id="notice" hidden></div>
+
+    <div id="settings-backdrop" hidden>
+      <div id="settings-panel" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+        <h2 id="settings-title">Settings</h2>
+
+        <fieldset>
+          <legend>Proxy engine</legend>
+          <label class="option">
+            <input type="radio" name="engine" value="scramjet" />
+            <span><strong>Scramjet</strong><small>Modern WASM-rewritten proxy (Mercury Workshop)</small></span>
+          </label>
+          <label class="option">
+            <input type="radio" name="engine" value="ultraviolet" />
+            <span><strong>Ultraviolet</strong><small>Classic service-worker proxy (Titanium Network)</small></span>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Transport</legend>
+          <label class="option">
+            <input type="radio" name="transport" value="libcurl" />
+            <span><strong>libcurl</strong><small>libcurl.js over Wisp</small></span>
+          </label>
+          <label class="option">
+            <input type="radio" name="transport" value="epoxy" />
+            <span><strong>epoxy</strong><small>epoxy-tls over Wisp</small></span>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Search engine</legend>
+          <select id="settings-search" aria-label="Search engine">
+            <option value="google">Google</option>
+            <option value="duckduckgo">DuckDuckGo</option>
+            <option value="bing">Bing</option>
+          </select>
+        </fieldset>
+
+        <div class="settings-actions">
+          <button id="settings-reset" type="button" class="danger">Reset proxy data</button>
+          <span class="spacer"></span>
+          <button id="settings-cancel" type="button">Cancel</button>
+          <button id="settings-save" type="button" class="go">Save &amp; apply</button>
+        </div>
+        <p class="settings-hint">Changing the engine or transport reloads the page and re-registers its service worker.</p>
+      </div>
+    </div>
+  </body>
+</html>

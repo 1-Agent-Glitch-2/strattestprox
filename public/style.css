@@ -1,0 +1,44 @@
+* { box-sizing: border-box; }
+:root { font: 15px/1.4 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #e7eaf0; background: #101319; }
+body { margin: 0; width: 100vw; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+header { display: flex; align-items: center; gap: 18px; padding: 12px 18px; background: #171b23; border-bottom: 1px solid #292f3a; }
+.brand { display: flex; align-items: center; gap: 10px; min-width: 150px; }
+.brand strong, .brand small { display: block; }
+.brand strong { font-size: 16px; letter-spacing: .01em; }
+.brand small { color: #929baa; font-size: 11px; }
+.mark { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; color: #fff; font-weight: 800; background: linear-gradient(135deg,#7c5cff,#3ea6ff); }
+form { flex: 1; display: flex; gap: 5px; min-width: 0; padding: 5px; border: 1px solid #353d4b; border-radius: 10px; background: #0e1117; }
+button { border: 0; border-radius: 7px; color: #cbd2df; background: transparent; font: inherit; cursor: pointer; min-width: 34px; }
+button:hover { background: #242b36; }
+input { flex: 1; min-width: 0; border: 0; outline: 0; color: #eef1f6; background: transparent; padding: 6px 8px; font: inherit; }
+input::placeholder { color: #778192; }
+button.go { padding: 5px 13px; background: #6d5dfc; color: white; font-weight: 650; }
+button.go:hover { background: #806fff; }
+button.danger { color: #ff9db1; }
+button.danger:hover { background: #3a1d25; }
+#status { white-space: nowrap; color: #a5adbb; font-size: 12px; }
+#settings-open { font-size: 17px; padding: 4px 9px; border: 1px solid #353d4b; }
+main { flex: 1; min-height: 0; background: #fff; }
+iframe { width: 100%; height: 100%; border: 0; background: white; }
+#notice { position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%); max-width: min(700px, calc(100vw - 32px)); padding: 12px 16px; border: 1px solid #7d5361; border-radius: 9px; color: #ffe7ee; background: #311e26; box-shadow: 0 8px 30px #0006; z-index: 30; }
+
+/* Settings dialog */
+#settings-backdrop { position: fixed; inset: 0; background: #05070bd0; backdrop-filter: blur(3px); display: grid; place-items: center; z-index: 40; }
+#settings-backdrop[hidden] { display: none; }
+#settings-panel { width: min(430px, calc(100vw - 32px)); max-height: calc(100vh - 48px); overflow: auto; background: #171b23; border: 1px solid #2f3644; border-radius: 14px; padding: 18px 20px; box-shadow: 0 18px 60px #000a; }
+#settings-panel h2 { margin: 0 0 14px; font-size: 18px; }
+#settings-panel fieldset { border: 1px solid #2c3341; border-radius: 10px; margin: 0 0 14px; padding: 10px 12px 8px; }
+#settings-panel legend { padding: 0 6px; color: #98a2b3; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
+.option { display: flex; align-items: flex-start; gap: 9px; padding: 7px 4px; border-radius: 8px; cursor: pointer; }
+.option:hover { background: #1e2430; }
+.option input { flex: 0 0 auto; margin-top: 3px; accent-color: #6d5dfc; }
+.option strong, .option small { display: block; }
+.option small { color: #8b94a5; font-size: 12px; }
+select { width: 100%; padding: 8px 10px; border-radius: 8px; border: 1px solid #353d4b; background: #0e1117; color: #eef1f6; font: inherit; }
+.settings-actions { display: flex; gap: 8px; align-items: center; margin-top: 4px; }
+.settings-actions .spacer { flex: 1; }
+.settings-actions button:not(.go):not(.danger) { padding: 7px 13px; border: 1px solid #353d4b; }
+.settings-actions .go { padding: 7px 15px; }
+.settings-hint { margin: 12px 0 0; color: #7f8899; font-size: 12px; }
+
+@media (max-width: 720px) { header { gap: 10px; padding: 9px; } .brand { min-width: auto; } .brand small, #status { display: none; } .brand strong { display: none; } }
