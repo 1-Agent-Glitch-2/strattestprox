@@ -1,0 +1,24 @@
+{
+  "name": "dual-proxy-node",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A single Node.js host running both the Scramjet and Ultraviolet proxy engines with an in-page engine selector.",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "@mercuryworkshop/bare-mux": "^2.1.9",
+    "@mercuryworkshop/epoxy-transport": "2.1.28",
+    "@mercuryworkshop/libcurl-transport": "^2.0.5",
+    "@mercuryworkshop/scramjet": "2.0.67-alpha.2",
+    "@mercuryworkshop/scramjet-controller": "^0.0.14",
+    "@titaniumnetwork-dev/ultraviolet": "^3.2.10",
+    "wisp-server-node": "1.1.7",
+    "ws": "^8.19.0"
+  }
+}
